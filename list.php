@@ -48,7 +48,23 @@
     <div class="container mt-5">
         <h1 class="text-center display-2">Siswa Yang Sudah Mendaftar</h1>
 
-        <a href="create.php" class="btn btn-primary">Tambah Baru</a>
+
+
+        <div class="d-flex">
+            <div class="p-2 flex-grow-1">
+                <a href="create.php" class="btn btn-primary">Tambah Baru</a>
+            </div>
+            <div class="p-2">
+            <?php 
+                include("koneksi.php");
+                $sql = "SELECT * FROM new_siswa";
+                $dataSiswa = mysqli_query($conn, $sql);
+                $total = mysqli_num_rows($dataSiswa);
+
+                echo "<a>Total Siswa: ".$total."</a>";
+            ?>
+            </div>
+        </div>
 
         <table class="table pt-1">
             <thead>
