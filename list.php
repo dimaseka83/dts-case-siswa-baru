@@ -56,6 +56,7 @@
             <th>Jenis Kelamin</th>
             <th>Agama</th>
             <th>Sekolah Asal</th>
+            <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -73,6 +74,10 @@
         echo "<td>".jenis_kelamin($value['jenis_kelamin'])."</td>";
         echo "<td>".agama($value['agama'])."</td>";
         echo "<td>".$value['sekolah_asal']."</td>";
+        echo "<td>";
+        echo "<a href='edit.php?id=".$value['id']."'>Edit</a> | ";
+        echo "<a href='hapus.php?id=".$value['id']."'>Hapus</a>";
+        echo "</td>";
         echo "</tr>";
     }
 
