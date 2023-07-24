@@ -56,7 +56,7 @@
 
         <div class="d-flex">
             <div class="p-2 flex-grow-1">
-                <a href="link.php" class="btn btn-danger">Kembali</a>
+                <a href="list.php" class="btn btn-danger">Kembali</a>
             </div>
             <div class="p-2">
                 <button class="btn btn-primary" type="submit">Kirim</button>
