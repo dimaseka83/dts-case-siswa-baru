@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
     <?php 
@@ -44,53 +45,44 @@
         }
     ?>
 
-    <h1>Siswa Yang Sudah Mendaftar</h1>
+    <div class="container mt-5">
+        <h1 class="text-center display-2">Siswa Yang Sudah Mendaftar</h1>
 
-    <a href="create.php">Tambah Baru</a>
-<table>
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Jenis Kelamin</th>
-            <th>Agama</th>
-            <th>Sekolah Asal</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php 
-    include("koneksi.php");
+        <a href="create.php" class="btn btn-primary">Tambah Baru</a>
 
-    $sql = "SELECT * FROM new_siswa";
-    $query = mysqli_query($conn, $sql);
+        <table class="table pt-1">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Agama</th>
+                    <th>Sekolah Asal</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+            include("koneksi.php");
 
-    foreach ($query as $key => $value) {
-        echo "<tr>";
-        echo "<td>".($key + 1)."</td>";
-        echo "<td>".$value['nama']."</td>";
-        echo "<td>".$value['alamat']."</td>";
-        echo "<td>".jenis_kelamin($value['jenis_kelamin'])."</td>";
-        echo "<td>".agama($value['agama'])."</td>";
-        echo "<td>".$value['sekolah_asal']."</td>";
-        echo "</tr>";
-    }
+            $sql = "SELECT * FROM new_siswa";
+            $query = mysqli_query($conn, $sql);
 
-    ?>
-    </tbody>
-</table>
-    
-<!-- Total Siswa -->
-    <?php 
-        include("koneksi.php");
+            foreach ($query as $key => $value) {
+                echo "<tr>";
+                echo "<td>".($key + 1)."</td>";
+                echo "<td>".$value['nama']."</td>";
+                echo "<td>".$value['alamat']."</td>";
+                echo "<td>".jenis_kelamin($value['jenis_kelamin'])."</td>";
+                echo "<td>".agama($value['agama'])."</td>";
+                echo "<td>".$value['sekolah_asal']."</td>";
+                echo "</tr>";
+            }
 
-        $sql = "SELECT * FROM new_siswa";
-        $query = mysqli_query($conn, $sql);
-
-        $total = mysqli_num_rows($query);
-
-        echo "<h3>Total Siswa: ".$total."</h3>";
-    
-    ?>
+            ?>
+            </tbody>
+        </table>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
