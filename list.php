@@ -80,5 +80,17 @@
     </tbody>
 </table>
     
+<!-- Total Siswa -->
+    <?php 
+        include("koneksi.php");
+
+        $sql = "SELECT * FROM new_siswa";
+        $query = mysqli_query($conn, $sql);
+
+        $total = mysqli_num_rows($query);
+
+        echo "<h3>Total Siswa: ".$total."</h3>";
+    
+    ?>
 </body>
 </html>
