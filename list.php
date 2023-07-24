@@ -93,9 +93,10 @@
                 echo "<td>".jenis_kelamin($value['jenis_kelamin'])."</td>";
                 echo "<td>".agama($value['agama'])."</td>";
                 echo "<td>".$value['sekolah_asal']."</td>";
-                echi "<td>";
+                echo "<td>";
                 echo "<a href='edit.php?id=".$value['id']."' class='btn btn-warning'>Edit</a>";
                 echo "<a href='delete.php?id=".$value['id']."' class='btn btn-danger'>Hapus</a>";
+                echo "</td>";
                 echo "</tr>";
             }
 
